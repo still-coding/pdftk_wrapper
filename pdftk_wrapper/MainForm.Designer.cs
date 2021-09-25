@@ -73,9 +73,10 @@ namespace pdftk_wrapper
             // 
             this.fswMainDir.EnableRaisingEvents = true;
             this.fswMainDir.SynchronizingObject = this;
-            this.fswMainDir.Changed += new System.IO.FileSystemEventHandler(this.fswMainDir_Changed_Deleted);
+            this.fswMainDir.Changed += new System.IO.FileSystemEventHandler(this.fswMainDir_Created_Changed_Deleted);
+            this.fswMainDir.Created += new System.IO.FileSystemEventHandler(this.fswMainDir_Created_Changed_Deleted);
             this.fswMainDir.Deleted += new System.IO.FileSystemEventHandler(this.fswMainDir_Deleted);
-            this.fswMainDir.Renamed += new System.IO.RenamedEventHandler(this.fswMainDir_Changed_Deleted);
+            this.fswMainDir.Renamed += new System.IO.RenamedEventHandler(this.fswMainDir_Created_Changed_Deleted);
             // 
             // lvExplorer
             // 

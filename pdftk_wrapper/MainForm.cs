@@ -61,7 +61,7 @@ namespace pdftk_wrapper
             tslMessage.Text = $"Найдено файлов: {lvExplorer.Items.Count}";
         }
 
-        private void fswMainDir_Changed_Deleted(object sender, EventArgs e)
+        private void fswMainDir_Created_Changed_Deleted(object sender, EventArgs e)
         {
             updateFiles();
         }
@@ -159,6 +159,7 @@ namespace pdftk_wrapper
         {
             foreach (ListViewItem item in lvExplorer.SelectedItems)
                 lsbFilesToCat.Items.Add(item.Text);
+            tslMessage.Text = $"Для склейки добавлено: {lvExplorer.SelectedItems.Count}, всего файлов: {lsbFilesToCat.Items.Count}";
         }
 
         private void btnUp_Click(object sender, EventArgs e)
@@ -173,6 +174,7 @@ namespace pdftk_wrapper
 
         private void btnRemoveFiles_Click(object sender, EventArgs e)
         {
+            tslMessage.Text = $"{lsbFilesToCat.SelectedItem} удалён, всего файлов для склейки: {lsbFilesToCat.Items.Count - 1}";
             lsbFilesToCat.Items.Remove(lsbFilesToCat.SelectedItem);
         }
 
